@@ -3,29 +3,29 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+    private static int x, y;
+    private static int w, h;
     private static List<Integer> list = new ArrayList<>();
+
     public static void main(String[] args) {
-        mkList();
-        System.out.println(answer());
+        input();
+        listInit();
+        System.out.println(list.stream().min(Integer::compare).get());
     }
 
-    private static void mkList() {
-        Scanner scanner=new Scanner(System.in);
-        for (int i = 0; i < 8; i++) {
-            list.add(i,scanner.nextInt());
-        }
+    private static void listInit() {
+        list.add(x);
+        list.add(y);
+        list.add(w-x);
+        list.add(h-y);
     }
 
-    private static String answer() {
-        int ascending = 0;
-        int descending = 0;
-        for (int el : list) {
-            if (list.get(el - 1) == el) ascending++;
-            if (list.get(el - 1) == 9 - el) descending++;
-        }
-        if (ascending == 8) return "ascending";
-        if (descending == 8) return "descending";
 
-        return "mixed";
+    private static void input() {
+        Scanner scanner = new Scanner(System.in);
+        x = scanner.nextInt();
+        y = scanner.nextInt();
+        w = scanner.nextInt();
+        h = scanner.nextInt();
     }
 }
