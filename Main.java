@@ -1,31 +1,27 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
 public class Main {
-    private static int x, y;
-    private static int w, h;
-    private static List<Integer> list = new ArrayList<>();
+    private static int length;
+    private static String message;
+    static long r=1;
+    final static int M=1234567891;
 
     public static void main(String[] args) {
         input();
-        listInit();
-        System.out.println(list.stream().min(Integer::compare).get());
+        System.out.println(calc());
     }
 
-    private static void listInit() {
-        list.add(x);
-        list.add(y);
-        list.add(w-x);
-        list.add(h-y);
+    private static long calc() {
+        long hash=0;
+        for (int i = 0; i < length; i++) {
+            hash += ((message.charAt(i)-'a'+1)*r)%M;
+            r = (r*31)%M;
+        }
+        return hash%M;
     }
-
 
     private static void input() {
-        Scanner scanner = new Scanner(System.in);
-        x = scanner.nextInt();
-        y = scanner.nextInt();
-        w = scanner.nextInt();
-        h = scanner.nextInt();
+        Scanner scanner=new Scanner(System.in);
+        length =scanner.nextInt();
+        message =scanner.next();
     }
 }
