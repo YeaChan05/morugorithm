@@ -1,27 +1,44 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
 public class Main {
-    private static int length;
-    private static String message;
-    static long r=1;
-    final static int M=1234567891;
+    static int a;
+    static int b;
+    static int c;
+    static private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void main(String[] args) {
-        input();
-        System.out.println(calc());
-    }
 
-    private static long calc() {
-        long hash=0;
-        for (int i = 0; i < length; i++) {
-            hash += ((message.charAt(i)-'a'+1)*r)%M;
-            r = (r*31)%M;
+
+    public static void main(String[] args) throws IOException {
+        List<String> answer = new ArrayList<String>();
+        while (true) {
+            input();
+            if (a == 0 && b == 0 && c == 0) break;
+            answer.add(calc());
         }
-        return hash%M;
+        ;
+        answer.forEach(System.out::println);
     }
 
-    private static void input() {
-        Scanner scanner=new Scanner(System.in);
-        length =scanner.nextInt();
-        message =scanner.next();
+
+    private static String calc() {
+        if ((Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2))
+                || (Math.pow(b, 2) + Math.pow(c, 2) == Math.pow(a, 2))
+                || (Math.pow(c, 2) + Math.pow(a, 2) == Math.pow(b, 2)))
+            return "right";
+
+        return "wrong";
+    }
+
+    private static void input() throws IOException {
+        String str = reader.readLine();
+        String[] ele = str.split(" ");
+        a = Integer.parseInt(ele[0]);
+        b = Integer.parseInt(ele[1]);
+        c = Integer.parseInt(ele[2]);
     }
 }
