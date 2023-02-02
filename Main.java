@@ -7,27 +7,23 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        int M=scanner.nextInt();
 
-        int n = Integer.parseInt(br.readLine());
-        int answer = 0;
-        for (int i = 1; i < n; i++) {
-            int num = calc(i);
-            if (num == n) {
-                answer = i;
-                break;
+        for (int i =M; i >0; i--) {
+            int sum=i;
+            int temp=i;
+            while(temp>0){
+                sum+=temp%10;
+                temp/=10;
             }
+            if(M==sum)
+                list.add(i);
         }
-        System.out.print(answer);
-    }
-
-    static int calc(int n) {
-        int temp = n;
-        while (n != 0) {
-            temp += n % 10;
-            n /= 10;
-        }
-        return temp;
+        if(list.isEmpty())
+            list.add(0);
+        System.out.println(Collections.min(list));
     }
 }
