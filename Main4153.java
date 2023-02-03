@@ -19,7 +19,7 @@ public class Main4153 {
             if (a == 0 && b == 0 && c == 0) break;
             answer.add(calc());
         }
-        ;
+
         answer.forEach(System.out::println);
     }
 
