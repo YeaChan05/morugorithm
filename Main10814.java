@@ -1,26 +1,27 @@
 import java.util.*;
 
 public class Main10814 {
-    private static List<List<String>> data=new ArrayList<>();
+    private static List<String> inputs = new ArrayList<>();
+    
     public static void main(String[] args) {
         input();
-        System.out.println(data);
-
+        Collections.sort(inputs, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return Integer.parseInt(o1.split(" ")[0])-Integer.parseInt(o2.split(" ")[0]);
+            }
+        });
+        inputs.forEach(System.out::println);
     }
+
+
+
 
     private static void input() {
         Scanner scanner = new Scanner(System.in);
-        int N=scanner.nextInt();
+        int N = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < N; i++) {
-            String temp=scanner.nextLine();
-            String age=temp.split(" ")[0];
-            String name=temp.split(" ")[1];
-            System.out.println(age+ " "+name);
-//            int age=Integer.parseInt(temp.split(" ")[0]);
-//            String name=temp.split(" ")[1];
-//            System.out.println("age: "+age);
-//            System.out.println("name: "+name);
-//            data.get(age).add(name);
+            inputs.add(i,scanner.nextLine());
         }
     }
 }
