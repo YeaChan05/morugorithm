@@ -5,6 +5,7 @@ public class Main11866 {
     private static int K;
     private static final Queue<Integer> queue = new LinkedList<>();
     private static final List<Integer> answer = new ArrayList<>();
+
     
     public static void main(String[] args) {
         input();
@@ -17,6 +18,7 @@ public class Main11866 {
         }
         System.out.print(">");
     }
+
     
     private static void rmElement() {
         for (int cnt=1;!queue.isEmpty();cnt++) {
@@ -29,6 +31,7 @@ public class Main11866 {
         }
     }
     
+
     private static void input() {
         Scanner scanner = new Scanner(System.in);
         N = scanner.nextInt();
@@ -37,6 +40,7 @@ public class Main11866 {
             queue.add(i);
         }
     }
+
     
 }
 
