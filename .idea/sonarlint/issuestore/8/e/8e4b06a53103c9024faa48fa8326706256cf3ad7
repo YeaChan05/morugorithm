@@ -1,0 +1,17 @@
+
+o
+java:S2293	"YReplace the type specification in this constructor call with the diamond operator ("<>").(¤¨›„
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ì£‹
+0
+java:S1220""Move this file to a named package.
+<	java:S131""Add a default case to this switch.(³¾¨Íÿÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(¸ä—¸
+E	java:S106!"+Replace this use of System.out by a logger.(¾ùê¤üÿÿÿÿ
+E	java:S106&"+Replace this use of System.out by a logger.(Ø¬×Áûÿÿÿÿ
+E	java:S106)"+Replace this use of System.out by a logger.(¾ùê¤üÿÿÿÿ
+E	java:S106-"+Replace this use of System.out by a logger.(¾’Åúüÿÿÿÿ
+E	java:S1061"+Replace this use of System.out by a logger.(œŸŒ»ýÿÿÿÿ
+@	java:S1066"+Replace this use of System.out by a logger.(ëõÉÅ
+E	java:S1069"+Replace this use of System.out by a logger.(¾ùê¤üÿÿÿÿ
+@	java:S106>"+Replace this use of System.out by a logger.(üÅÞ²
+E	java:S106A"+Replace this use of System.out by a logger.(¾ùê¤üÿÿÿÿ
