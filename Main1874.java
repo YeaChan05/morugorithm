@@ -1,34 +1,42 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Stack;
+import java.util.*;
 
 public class Main1874 {
-    private static Stack<Integer> stack=new Stack<>();
     public static void main(String[] args) {
-        setStack();
-    }
+        Scanner scanner = new Scanner(System.in);
 
-    private static void setStack() {
-        try (BufferedReader br=new BufferedReader(new InputStreamReader(System.in))){
-            int N = Integer.parseInt(br.readLine());
-            for (int i = 0; i < N; i++) {
-                int result = Integer.parseInt(br.readLine());
-                computeResult(result);
+        int n = scanner.nextInt();
+        int[] sequence = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            sequence[i] = scanner.nextInt();
+        }
+
+        scanner.close();
+
+        Stack<Integer> stack = new Stack<>();
+        StringBuilder result = new StringBuilder();
+
+        int current = 1;
+
+        for (int num : sequence) {
+            while (current <= num) {
+                stack.push(current);
+                result.append("+\n");
+                current++;
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
-    private static void computeResult(int result) {
-        while (result>stack.size()){
-            stack.push(0);
-            System.out.println("+");
+            if (!stack.isEmpty() && stack.peek() == num) {
+                stack.pop();
+                result.append("-\n");
+            } else {
+                System.out.println("NO");
+                return;
+            }
         }
-        while (result!=stack.size()){
-            stack.pop();
-            System.out.println("-");
-        }
+
+        System.out.println(result.toString());
     }
 }
