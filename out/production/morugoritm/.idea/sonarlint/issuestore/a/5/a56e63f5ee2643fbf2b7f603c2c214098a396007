@@ -1,14 +1,0 @@
-
-m	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹Œ¼§8ÜãÈ¾1
-7
-java:S1220""Move this file to a named package.8İãÈ¾1
-m
-java:S1149
-"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(¼«¬ø8çãÈ¾1
-r
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(±÷Øùÿÿÿÿ8çãÈ¾1
-m
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(ƒ†ì€8çãÈ¾1
-m
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(ôß¶Ï8çãÈ¾1
-G	java:S106"+Replace this use of System.out by a logger.(ÆÀ¤™8èãÈ¾1
