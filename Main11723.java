@@ -7,48 +7,44 @@ import java.util.Set;
 
 public class Main11723 {
     public static void main(String[] args) throws IOException {
-        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int M = Integer.parseInt(br.readLine());
-        StringBuilder sb=new StringBuilder();
-        Set<Integer> set=new HashSet<>();
+
+        int bitmask = 0;
+        StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < M; i++) {
-            String line = br.readLine();
-            switch (line.split(" ")[0]){
-                case "add": {
-                    int x=Integer.parseInt(line.split(" ")[1]);
-                    set.add(x);
+            String[] line = br.readLine().split(" ");
+            String command = line[0];
+            int x = 0;
+
+            if (!command.equals("all") && !command.equals("empty")) {
+                x = Integer.parseInt(line[1]);
+            }
+
+            switch (command) {
+                case "add":
+                    bitmask |= (1 << (x - 1));
                     break;
-                }
-                case "remove":{
-                    int x=Integer.parseInt(line.split(" ")[1]);
-                    set.remove(x);
+                case "remove":
+                    bitmask &= ~(1 << (x - 1));
                     break;
-                }
-                case "check":{
-                    int x=Integer.parseInt(line.split(" ")[1]);
-                    if(set.contains(x))
-                        sb.append(1+"\n");
-                    else
-                        sb.append(0+"\n");
+                case "check":
+                    sb.append(((bitmask & (1 << (x - 1))) != 0) ? "1\n" : "0\n");
                     break;
-                }
-                case "toggle":{
-                    int x=Integer.parseInt(line.split(" ")[1]);
-                    if(!set.remove(x))
-                        set.add(x);
+                case "toggle":
+                    bitmask ^= (1 << (x - 1));
                     break;
-                }
-                case "all":{
-                    set=new HashSet<>(Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20));
+                case "all":
+                    bitmask = (1 << 20) - 1;
                     break;
-                }
-                case "empty":{
-                    set=new HashSet<>();
+                case "empty":
+                    bitmask = 0;
                     break;
-                }
             }
         }
+
+        System.out.print(sb);
         br.close();
-        System.out.println(sb);
     }
 }
